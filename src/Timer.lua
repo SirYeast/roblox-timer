@@ -7,7 +7,7 @@ type TimerImpl = {
 	__index: TimerImpl,
 	__lt: (t1: Timer, t2: Timer)->boolean,
 	__le: (t1: Timer, t2: Timer)->boolean,
-	new: (duration: number, looped: boolean, name: string?)->Timer,
+	new: (duration: number, looped: boolean?, name: string?)->Timer,
 	getActiveTimers: ()->{Timer},
 	GetElapsed: (self: Timer)->(number, boolean),
 	Start: (self: Timer)->(),
@@ -22,7 +22,7 @@ export type Timer = typeof(setmetatable({}::{
 	_startTime: number,
 	_elapsed: number,
 	Name: string,
-	Looped: boolean,
+	Looped: boolean?,
 	Executed: Signal.Signal
 }, {}::TimerImpl))
 

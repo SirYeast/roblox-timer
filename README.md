@@ -25,10 +25,9 @@ print(Timer.getActiveTimers())
 
 ## API
 ```Lua
-function Timer.new(duration: number, looped: boolean, name: string?) -> Timer
+function Timer.new(duration: number, looped: boolean?, name: string?) -> Timer
 ```
-Returns a new timer. `duration` must be greater than 0, decimals are allowed.
-`name` is optional and defaults to "Timer`duration`". If provided, must be at least 1 character.
+Returns a new timer. `duration` must be greater than 0, decimals are allowed. `looped` is optional and defaults to nil (same as false). `name` is optional and defaults to "Timer`duration`". If provided, must be at least 1 character.
 
 ---
 ```Lua
