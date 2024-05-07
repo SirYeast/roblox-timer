@@ -11,7 +11,7 @@ type TimerImpl = {
 	getActiveTimers: ()->{Timer},
 	GetElapsed: (self: Timer)->(number, boolean),
 	Start: (self: Timer)->(),
-	Stop: (self: Timer, preventExecute: boolean?)->(), --preventExecute = false by default
+	Stop: (self: Timer, preventExecute: boolean?)->(),
 	Destroy: (self: Timer, preventExecute: boolean?)->()
 }
 
@@ -147,7 +147,9 @@ end
 
 function Timer:Destroy(preventExecute)
 	self:Stop(preventExecute)
+
 	setmetatable(self::any, nil)
+	table.freeze(self)
 end
 
 return Timer
